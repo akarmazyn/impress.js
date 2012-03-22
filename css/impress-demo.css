@@ -516,3 +516,29 @@ q.small {
 .top150 {
     margin-top: 150px;
 }
+
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.highlight {
+    background-color: #232125;
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 24px;
+}
+.highlight pre {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+h3.title {
+    color: #759E1A;
+    text-decoration: none;
+    font-size: 18px;
+    color: #759E1A;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+}
