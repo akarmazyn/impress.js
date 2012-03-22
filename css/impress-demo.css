@@ -237,7 +237,7 @@ body     { pointer-events: none; }
 
 #big b, .big b {
     display: block;
-    font-size: 250px;
+    font-size: 180px;
     line-height: 250px;
 }
 
@@ -510,6 +510,9 @@ q.small {
     color: #666;
     margin-top: 80px;
 }
+.top50 {
+    margin-top: 50px;
+}
 .top100 {
     margin-top: 100px;
 }
@@ -541,4 +544,8 @@ h3.title {
     color: #759E1A;
     text-transform: uppercase;
     padding-bottom: 10px;
+}
+.tiny {
+    font-size: 14px;
+    color: #888;
 }
