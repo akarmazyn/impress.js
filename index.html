@@ -92,6 +92,7 @@
     <link href="css/impress-demo.css" rel="stylesheet" />
     <script type="text/javascript" src="scripts/shCore.js"></script>
     <script type="text/javascript" src="scripts/shBrushJScript.js"></script>
+    <script type="text/javascript" src="scripts/shBrushPhp.js"></script>
     <link type="text/css" rel="stylesheet" href="styles/shThemeMidnight.css"/>
     <script type="text/javascript">SyntaxHighlighter.all();</script>
 
@@ -275,7 +276,7 @@
         <h3 class="title top100">Git</h3>
         <div class="highlight-bash">
             <div class="highlight">
-                <pre class="brush: js; ">git clone https://github.com/symfony/HttpFoundation vendor/</pre>
+                <pre class="brush: php; ">git clone https://github.com/symfony/HttpFoundation vendor/</pre>
             </div>
         </div>
         <h3 class="title top100">Composer</h3>
@@ -300,7 +301,7 @@
     <div class="step slide" data-x="-2000" data-y="2100" data-z="500" data-rotate="180" data-scale="2">
         <div class="highlight-bash top100">
             <div class="highlight">
-                <pre class="brush: js; ">require_once '/path/to/src/Symfony/Component/ClassLoader/UniversalClassLoader.php';
+                <pre class="brush: php; ">require_once '/path/to/src/Symfony/Component/ClassLoader/UniversalClassLoader.php';
 
 use Symfony\Component\ClassLoader\UniversalClassLoader;
 
@@ -335,14 +336,14 @@ $loader->register();</pre>
     <div class="step slide" data-x="4500" data-y="100" data-z="500" data-rotate="360" data-scale="2">
         <div class="highlight-bash top100">
             <div class="highlight">
-                <pre class="brush: js; ">use Symfony\Component\HttpFoundation\Request;
+                <pre class="brush: php; ">use Symfony\Component\HttpFoundation\Request;
 
 $request = Request::createFromGlobals();</pre>
             </div>
         </div>
         <div class="highlight-bash top150">
             <div class="highlight">
-                <pre class="brush: js; ">$request = new Request($_GET, $_POST, array(), $_COOKIE, $_FILES, $_SERVER);</pre>
+                <pre class="brush: php; ">$request = new Request($_GET, $_POST, array(), $_COOKIE, $_FILES, $_SERVER);</pre>
             </div>
         </div>
     </div>
@@ -357,14 +358,14 @@ $request = Request::createFromGlobals();</pre>
     <div class="step slide" data-x="9000" data-y="100" data-z="500" data-rotate="360" data-scale="2">
         <div class="highlight-bash top100">
             <div class="highlight">
-                <pre class="brush: js; ">use Symfony\Component\HttpFoundation\Response;
+                <pre class="brush: php; ">use Symfony\Component\HttpFoundation\Response;
 
 $response = new Response('Content', 200, array('content-type' => 'text/html'));</pre>
             </div>
         </div>
         <div class="highlight-bash">
             <div class="highlight">
-                <pre class="brush: js; ">$response->setContent('Hello World');
+                <pre class="brush: php; ">$response->setContent('Hello World');
 
 $response->headers->set('Content-Type', 'text/plain');
 
@@ -373,7 +374,7 @@ $response->setStatusCode(404);</pre>
         </div>
         <div class="highlight-bash">
             <div class="highlight">
-                <pre class="brush: js; ">$response->setCharset('ISO-8859-1');
+                <pre class="brush: php; ">$response->setCharset('ISO-8859-1');
 
 $response->send();</pre>
             </div>
@@ -381,10 +382,10 @@ $response->send();</pre>
     </div>    
 
     <div class="step slide" data-x="9000" data-y="-2100" data-z="5000" data-rotate="360">
-        <q>Routing</q>
+        <p>Routing</p>
         <div class="highlight-bash top50">
             <div class="highlight">
-                <pre class="brush: js; ">use Symfony\Component\Routing\Matcher\UrlMatcher;
+                <pre class="brush: php; ">use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\RouteCollection;
 use Symfony\Component\Routing\Route;
@@ -400,16 +401,24 @@ $parameters = $matcher->match( '/foo' );
 // array('controller' => 'MyController', '_route' => 'route_name')</pre>
             </div>
         </div>
+
+        <div class="highlight-bash top50">
+            <div class="highlight">
+                <pre class="brush: php; ">use Symfony\Component\HttpFoundation\Request;
+
+$context = new RequestContext();
+$context->fromRequest(Request::createFromGlobals());</pre>
+            </div>
+        </div>
+
     </div>
 
-    <div class="step slide big" data-x="9000" data-y="-2100" data-rotate="360" data-scale="2">
-        <q>EventDispatcher</q>
-    </div>
+    <div class="step slide" data-x="9000" data-y="-2100" data-rotate="360" data-scale="2">
+        <p>EventDispatcher</p>
 
-    <div class="step slide" data-x="7000" data-y="-2100" data-z="500" data-rotate="360" data-scale="2">
         <div class="highlight-bash top100">
             <div class="highlight">
-                <pre class="brush: js; ">use Symfony\Component\EventDispatcher\EventDispatcher;
+                <pre class="brush: php; ">use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\EventDispatcher\Event;
 
 $dispatcher = new EventDispatcher();
@@ -423,64 +432,12 @@ $dispatcher->dispatch('event_name');</pre>
         </div>
     </div>
 
+
     <div class="step slide big" data-x="7000" data-y="-4100" data-rotate="360">
         <q>HttpKernel</q>
-    </div>
-
-    <div class="step" data-x="5000" data-y="-4100" data-z="500" data-rotate="360" >
-        <img width="1000" src="img/preview_slide_78.jpg" />
-    </div>
-
-    <div class="step" data-x="5000" data-y="-4100" data-z="-2000" data-rotate="360" >
-        <img width="1000" src="img/preview_slide_79.jpg" />
-    </div>
-
-    <div class="step" data-x="5000" data-y="-4100" data-z="-3500" data-rotate="360" >
-        <img width="1000" src="img/preview_slide_80.jpg" />
-    </div>
-
-    <div class="step" data-x="5000" data-y="-4100" data-z="-5000" data-rotate="360" >
-        <img width="1000" src="img/preview_slide_81.jpg" />
-    </div>
-
-    <div class="step" data-x="5000" data-y="-4100" data-z="-6500" data-rotate="360" >
-        <img width="1000" src="img/preview_slide_82.jpg" />
-    </div>
-
-    <div class="step" data-x="5000" data-y="-4100" data-z="-8000" data-rotate="360" >
-        <img width="1000" src="img/preview_slide_83.jpg" />
-    </div>
-
-    <div class="step" data-x="5000" data-y="-4100" data-z="-9500" data-rotate="360" >
-        <img width="1000" src="img/preview_slide_84.jpg" />
-    </div>
-
-    <div class="step" data-x="5000" data-y="-4100" data-z="-1100" data-rotate="360" >
-        <img width="1000" src="img/preview_slide_85.jpg" />
-    </div>
-
-    <div class="step" data-x="5000" data-y="-4100" data-z="-12500" data-rotate="360" >
-        <img width="1000" src="img/preview_slide_86.jpg" />
-    </div>
-
-    <div class="step" data-x="5000" data-y="-4100" data-z="-14000" data-rotate="360" >
-        <img width="1000" src="img/preview_slide_87.jpg" />
-    </div>
-
-    <div class="step" data-x="5000" data-y="-4100" data-z="-15500" data-rotate="360" >
-        <img width="1000" src="img/preview_slide_88.jpg" />
-    </div>
-
-    <div class="step" data-x="5000" data-y="-4100" data-z="-17000" data-rotate="360" >
-        <img width="1000" src="img/preview_slide_89.jpg" />
-    </div>
-
-    <div class="step" data-x="5000" data-y="-4100" data-z="-19500" data-rotate="360" >
-        <img width="1000" src="img/preview_slide_90.jpg" />
-    </div>
-
-    <div class="step" data-x="5000" data-y="-4100" data-z="-21000" data-rotate="360" >
-        <img width="1000" src="img/preview_slide_91.jpg" />
+        <p class="top100">
+            &lsaquo; workflow &rsaquo;
+        </p>
     </div>
 
 
